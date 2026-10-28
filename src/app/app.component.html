@@ -1,3 +1,41 @@
-@for(product of this.products; track product.id){
-  {{ product.title}}
-}
+<header class="hero">
+  <span class="badge">Nueva temporada</span>
+  <h1>Fake Store</h1>
+  <h2>Catálogo de productos</h2>
+  @if (!loading && !error) {
+    <p class="count">{{ products.length }} productos disponibles</p>
+  }
+</header>
+
+<main class="catalog">
+  @if (loading) {
+    <div class="status">
+      <div class="spinner"></div>
+      <p>Cargando productos…</p>
+    </div>
+  } @else if (error) {
+    <div class="status status--error">
+      <p>No se han podido cargar los productos. Inténtalo de nuevo más tarde.</p>
+    </div>
+  } @else {
+    <section class="grid">
+      @for (product of products; track product.id) {
+        <article class="card">
+          <div class="card__image">
+            <img [src]="product.image" [alt]="product.title" loading="lazy">
+          </div>
+
+          <div class="card__body">
+            <p class="card__category">Categoría: {{ product.category }}</p>
+            <h3 class="card__title">{{ product.title }}</h3>
+            <p class="card__price"><span>Precio:</span> {{ product.price | number:'1.2-2' }} €</p>
+          </div>
+        </article>
+      }
+    </section>
+  }
+</main>
+
+<footer class="footer">
+  Datos obtenidos de <a href="https://fakestoreapi.com/" target="_blank" rel="noopener">Fake Store API</a>
+</footer>

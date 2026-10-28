@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos globales */
+:root {
+  --bg: #f6f3ee;
+  --surface: #ffffff;
+  --ink: #1d1b19;
+  --muted: #7a736b;
+  --accent: #e4572e;
+  --accent-soft: #fde8e1;
+  --border: #e8e2d9;
+  --radius: 18px;
+  --shadow: 0 1px 2px rgba(29, 27, 25, 0.04), 0 8px 24px rgba(29, 27, 25, 0.06);
+  --shadow-hover: 0 2px 4px rgba(29, 27, 25, 0.06), 0 18px 40px rgba(29, 27, 25, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
